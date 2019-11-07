@@ -5,7 +5,27 @@
         <hr>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-6">
-                <app-user-detail v-bind:age="age" v-on:ageWasUpdated="resetAge"></app-user-detail>
+                <app-user-detail v-bind:age="age" v-on:ageWasUpdated="resetAge">
+ 
+                    <template v-slot:default="slotProps">
+                        {{ slotProps.user }}
+                    </template>
+
+                    <template v-slot:header>
+                        <h1>title</h1>
+                    </template>
+
+                    <template v-slot:footer>
+                        <h1>footer</h1>
+                    </template>
+
+                    <template v-slot:default>
+                        <p>main content.</p>
+                    </template>
+
+
+                    <h1>Add slot</h1>
+                </app-user-detail>
             </div>
             <div class="col-xs-12 col-sm-6 col-6">
                 <app-user-edit v-bind:age="age" v-on:ageWasUpdated="resetAge"></app-user-edit>
